@@ -107,7 +107,7 @@ function finishQuiz(){
   const resultsDiv = document.getElementById('results');
   let html = `<h2>Your Score: `;
   questions.forEach((q,i)=>{
-    const chosen = form[`q${i}`].value;
+    const chosen = form[`q${i}`].value ?? -1;   // -1 if nothing selected
     const correct = q.ans;
     if(chosen==correct) score++;
     html+=`<div class="${chosen==correct?'correct':'wrong'}">
