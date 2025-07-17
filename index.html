@@ -103,17 +103,23 @@ const countdown = setInterval(()=>{
 // --------------- SCORING ---------------
 function finishQuiz(){
   clearInterval(countdown);
-  let score=0;
+  let score = 0;
   const resultsDiv = document.getElementById('results');
   let html = `<h2>Your Score: `;
+
   questions.forEach((q,i)=>{
-    const chosen = form[`q${i}`].value ?? -1;   // -1 if nothing selected
+    // pick the chosen value; empty string → -1 (unanswered)
+    const chosen = form[`q${i}`].value === "" ? -1 : Number(form[`q${i}`].value);
     const correct = q.ans;
-    if(chosen==correct) score++;
-    html+=`<div class="${chosen==correct?'correct':'wrong'}">
-             Q${i+1}: ${chosen==correct?'correct':'wrong'} (correct: ${q.choices[q.ans]})
-           </div>`;
+    const isRight = chosen === correct;
+    if (isRight) score++;
+
+    html += `<div class="${isRight?'correct':'wrong'}">
+               Q${i+1}: ${isRight?'correct':'wrong'} 
+               ${!isRight ? `(correct: ${q.choices[q.ans]})` : ''}
+             </div>`;
   });
+
   html = `<h2>Your Score: ${score}/40</h2>` + html;
   resultsDiv.innerHTML = html;
   resultsDiv.style.display='block';
