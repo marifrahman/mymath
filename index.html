@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ICAS Year 4 Practice Paper</title>
+<title>ICAS Year 4 – Paper C (New Set)</title>
 <style>
   body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:20px;background:#f7f7f7}
   h1{text-align:center;font-size:1.6rem}
@@ -12,8 +12,9 @@
   .q{margin-bottom:18px;border-bottom:1px solid #eee;padding-bottom:12px}
   .q p{margin:0 0 6px;font-weight:bold}
   label{display:block;margin:4px 0;font-size:0.95rem}
-  button#submitBtn{display:block;margin:25px auto;padding:10px 25px;font-size:1rem;background:#007bff;color:#fff;border:none;border-radius:4px;cursor:pointer}
-  button#submitBtn:disabled{background:#aaa}
+  button{display:block;margin:20px auto;padding:10px 25px;font-size:1rem;border:none;border-radius:4px;cursor:pointer}
+  #submitBtn{background:#007bff;color:#fff}
+  #shareBtn{background:#28a745;color:#fff}
   #results{display:none;margin:20px auto;max-width:700px;background:#fff;padding:20px;border-radius:8px}
   #results h2{margin-top:0}
   .correct{color:green}
@@ -23,64 +24,69 @@
 </head>
 <body>
 
-<h1>ICAS Year 4 Mathematics – Practice Paper B</h1>
+<h1>ICAS Year 4 – Paper C (New Question Set)</h1>
 
 <div id="timer">Time left: 45:00</div>
 
 <form id="quizForm">
-  <!-- Questions 1-40 inserted by JS -->
+  <!-- questions injected by JS -->
 </form>
 
 <button id="submitBtn" onclick="finishQuiz()">Finish & Review</button>
 
 <div id="results"></div>
+<button id="shareBtn" style="display:none" onclick="shareResults()">📸 Screenshot & Share via Email</button>
 
+<!-- html2canvas CDN -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
-// ------------------  QUESTION BANK  ------------------
+/* ============  QUESTION BANK  ============ */
 const questions = [
-{q:"Which number is 1 000 less than 9 306?", choices:["8 306","8 396","9 206","9 296"], ans:0},
-{q:"7 × 8 = 56 is the same as", choices:["56 ÷ 7","56 ÷ 8","7 + 8","8 × 9"], ans:0},
-{q:"What is 5/6 of 42?", choices:["27","30","35","36"], ans:3},
-{q:"A packet of 6 stickers costs $3.60. How much does one sticker cost?", choices:["35 ¢","40 ¢","45 ¢","50 ¢"], ans:2},
-{q:"Round 3 748 to the nearest hundred.", choices:["3 700","3 740","3 750","3 800"], ans:3},
-{q:"4 000 – 1 735 =", choices:["2 265","2 365","2 465","2 565"], ans:0},
-{q:"25 % of 120 is", choices:["20","25","30","60"], ans:2},
-{q:"Which list shows only factors of 24?", choices:["1,2,3,4,6,8,12,24","2,4,6,8,10,12,24","1,3,5,7,24","2,3,5,8,12"], ans:0},
-{q:"2.75 m = ____ cm", choices:["27.5","275","2 750","27 500"], ans:1},
-{q:"The value of the 7 in 17 439 is", choices:["70","700","7 000","70 000"], ans:2},
-{q:"A baker uses 3 eggs for every 12 cupcakes. How many eggs are needed for 60 cupcakes?", choices:["12","15","18","20"], ans:1},
-{q:"6 3/4 – 2 1/2 =", choices:["4 1/4","4 1/2","4 3/4","5"], ans:2},
-{q:"Look at the pattern: 5, 10, 20, 40, … What is the 5th term?", choices:["60","70","80","160"], ans:2},
-{q:"If ♦ × 9 = 63, then ♦ =", choices:["6","7","8","9"], ans:1},
-{q:"A rule is “add 6, then subtract 2”. Starting with 4, what is the 3rd number?", choices:["8","10","12","14"], ans:2},
-{q:"Which expression equals 36?", choices:["4×(7+2)","(4+7)×2","4+7×2","4+5+3"], ans:0},
-{q:"3, 6, 11, 18, 27, … The next number is", choices:["36","38","40","42"], ans:0},
-{q:"If ★+★+★=21 and ▲+▲=16, then ★+▲ =", choices:["11","12","13","15"], ans:2},
-{q:"3.5 kg = ____ g", choices:["350","3 050","3 500","35 000"], ans:2},
-{q:"A jug contains 2 L 400 mL. After pouring out 750 mL, how much is left?", choices:["1 L 650 mL","1 L 750 mL","2 L 350 mL","2 L 650 mL"], ans:0},
-{q:"A square has a perimeter of 48 cm. One side is", choices:["6 cm","8 cm","9 cm","12 cm"], ans:3},
-{q:"A jug holds 3.5 L. How many 250 mL cups can be filled?", choices:["12","14","16","18"], ans:1},
-{q:"3 kg 75 g = ____ g", choices:["3 075","3 705","3 750","30 750"], ans:0},
-{q:"A rectangle is 9 cm long and 4 cm wide. Its area is", choices:["13 cm²","26 cm²","36 cm²","72 cm²"], ans:2},
-{q:"How many lines of symmetry does a regular hexagon have?", choices:["3","4","5","6"], ans:3},
-{q:"Which 3-D shape has exactly 5 faces, 9 edges and 6 vertices?", choices:["triangular prism","square pyramid","cuboid","cone"], ans:0},
-{q:"Which angle is obtuse?", choices:["89°","90°","95°","180°"], ans:2},
-{q:"A right turn is", choices:["45°","90°","135°","180°"], ans:1},
-{q:"Which net folds to make a cube? (Choose the cube net)", choices:["A","B","C","D"], ans:2},
-{q:"The map scale is 1 cm : 4 km. A distance of 7 cm on the map is actually", choices:["11 km","24 km","28 km","32 km"], ans:2},
-{q:"A fair spinner has 6 equal parts numbered 1–6. What is the chance of spinning an even number?", choices:["1/6","1/3","1/2","2/3"], ans:2},
-{q:"The tally chart shows pets. How many more dogs than fish are there?", choices:["5","6","7","8"], ans:2},
-{q:"Which outcome is impossible when rolling a normal die?", choices:["rolling a 0","rolling a 3","rolling an even","rolling <6"], ans:0},
-{q:"A pictograph shows books read. One symbol = 5 books. The row for June has 4 symbols. Books read =", choices:["15","20","25","30"], ans:1},
-{q:"The data set 6, 7, 7, 9, 11 has a median of", choices:["7","8","9","11"], ans:0},
-{q:"A bag has 3 red, 4 blue, 5 green marbles. P(red) =", choices:["3/12","4/12","5/12","7/12"], ans:0},
-{q:"The next shape in △, □, ○, △, □, ○, … is", choices:["△","□","○","▽"], ans:2},
-{q:"A survey of 50 students shows 30 like apples. What percentage like apples?", choices:["30 %","40 %","50 %","60 %"], ans:3},
-{q:"Temperature at 6 a.m. was –3 °C. By noon it rose 8 °C. Noon temperature =", choices:["–11 °C","5 °C","8 °C","11 °C"], ans:1},
-{q:"Which event has a probability of 1?", choices:["rolling a 7 on a normal die","the sun rising tomorrow","flipping a coin and getting heads","drawing a red card from a blue deck"], ans:1}
+{q:"What is 8 642 rounded to the nearest hundred?",choices:["8 600","8 640","8 700","8 740"],ans:0},
+{q:"Which fraction is smallest?",choices:["2/3","3/4","5/8","7/10"],ans:2},
+{q:"A box holds 48 chocolates shared equally among 6 friends. How many does each get?",choices:["6","7","8","9"],ans:2},
+{q:"How many grams in 4.25 kg?",choices:["425","4 025","4 250","42 500"],ans:2},
+{q:"Which number sentence is true?",choices:["0.4 = 0.40","0.4 > 0.44","0.04 = 0.4","0.04 > 0.4"],ans:0},
+{q:"The time 13:50 is the same as",choices:["1:50 a.m.","1:50 p.m.","3:50 p.m.","11:50 p.m."],ans:1},
+{q:"A rectangle has length 12 cm and width 7 cm. Its perimeter is",choices:["38 cm","84 cm","19 cm","26 cm"],ans:0},
+{q:"What is the next number in 2, 5, 10, 17, 26, … ?",choices:["35","36","37","38"],ans:2},
+{q:"Which solid has exactly 2 faces that are circles?",choices:["sphere","cone","cylinder","cube"],ans:2},
+{q:"Which angle is reflex?",choices:["90°","135°","180°","270°"],ans:3},
+{q:"A pie chart shows 1/3 of children chose red. If 12 chose red, how many children total?",choices:["24","30","36","48"],ans:2},
+{q:"5 × 7 + 3 × 4 =",choices:["38","41","47","59"],ans:2},
+{q:"How many edges does a triangular prism have?",choices:["6","9","12","15"],ans:1},
+{q:"Which number is exactly halfway between 2 600 and 3 000?",choices:["2 700","2 800","2 850","2 900"],ans:1},
+{q:"A train leaves every 25 minutes. If one leaves at 09:10, when is the next?",choices:["09:25","09:35","09:40","09:45"],ans:1},
+{q:"Which of these is NOT a factor of 36?",choices:["4","6","8","9"],ans:2},
+{q:"A shop offers “Buy 2 get 1 free”. If one toy costs $8, how much for 3 toys?",choices:["$16","$24","$20","$32"],ans:0},
+{q:"Which set is in ascending order?",choices:["0.2, 0.05, 0.5","0.05, 0.2, 0.5","0.5, 0.2, 0.05","0.5, 0.05, 0.2"],ans:1},
+{q:"A square has area 64 cm². One side is",choices:["6 cm","7 cm","8 cm","9 cm"],ans:2},
+{q:"Which pattern uses the rule “multiply by 3 then subtract 1”?",choices:["1, 2, 5, 14","2, 5, 14, 41","1, 3, 8, 23","3, 8, 23, 68"],ans:1},
+{q:"How many days are there in 7 weeks?",choices:["35","42","49","56"],ans:2},
+{q:"The temperature falls from 5 °C to –2 °C. The change is",choices:["–7 °C","3 °C","7 °C","–3 °C"],ans:2},
+{q:"Which of these numbers is prime?",choices:["51","53","55","57"],ans:1},
+{q:"A bottle holds 2.5 L. After pouring 750 mL, how much is left (in mL)?",choices:["1 250","1 500","1 650","1 750"],ans:3},
+{q:"A right-angled triangle has sides 3 cm and 4 cm at the right angle. What is the third side (hypotenuse) length?",choices:["5 cm","6 cm","7 cm","8 cm"],ans:0},
+{q:"Which of these nets folds to make a square pyramid?",choices:["A","B","C","D"],ans:1},
+{q:"Which transformation maps the letter N onto its mirror image?",choices:["slide","flip","turn","stretch"],ans:1},
+{q:"The median of 11, 8, 15, 8, 20 is",choices:["8","11","15","20"],ans:1},
+{q:"A spinner has 4 red, 3 blue and 1 green sector. What is the probability of landing on blue?",choices:["1/8","3/8","4/8","5/8"],ans:1},
+{q:"A rectangle is drawn on 1 cm grid paper covering 28 squares. If length is 7 cm, the width is",choices:["3 cm","4 cm","5 cm","6 cm"],ans:1},
+{q:"Which number is divisible by both 3 and 5?",choices:["35","45","55","65"],ans:1},
+{q:"How many right angles does a rhombus have?",choices:["0","1","2","4"],ans:0},
+{q:"A car uses 6 L per 100 km. How many litres for 250 km?",choices:["12 L","15 L","18 L","20 L"],ans:1},
+{q:"Which 3-D shape has exactly 5 vertices?",choices:["triangular prism","square pyramid","cube","cone"],ans:1},
+{q:"Which of these times is earliest?",choices:["09:45 a.m.","09:30 a.m.","10:00 a.m.","09:15 a.m."],ans:3},
+{q:"A number divided by 8 gives 6 remainder 3. The number is",choices:["45","48","51","54"],ans:2},
+{q:"Which decimal is equal to 7/20?",choices:["0.35","0.7","0.07","0.035"],ans:0},
+{q:"Which of these is a reflex angle?",choices:["90°","135°","180°","200°"],ans:3},
+{q:"The next term in 5, 9, 17, 33, 65, … is",choices:["127","129","131","133"],ans:1},
+{q:"A clock shows 20 minutes past 7 in the evening. In 24-hour time this is",choices:["19:20","07:20","20:07","07:40"],ans:0},
+{q:"A farmer packs 96 eggs into cartons of 12. How many cartons?",choices:["6","7","8","9"],ans:2},
+{q:"A square and a rectangle have the same perimeter 36 cm. If the rectangle is 10 cm long, its width is",choices:["8 cm","9 cm","7 cm","6 cm"],ans:0}
 ];
 
-// --------------- RENDER QUESTIONS ---------------
+/* ============  RENDER  ============ */
 const form = document.getElementById('quizForm');
 questions.forEach((q,i)=>{
   const div=document.createElement('div');
@@ -90,7 +96,7 @@ questions.forEach((q,i)=>{
   form.appendChild(div);
 });
 
-// --------------- TIMER ---------------
+/* ============  TIMER  ============ */
 let timeLeft = 45*60;
 const timerEl = document.getElementById('timer');
 const countdown = setInterval(()=>{
@@ -100,33 +106,47 @@ const countdown = setInterval(()=>{
   if(timeLeft<=0){clearInterval(countdown); finishQuiz();}
 },1000);
 
-// --------------- SCORING ---------------
+/* ============  FINISH & SCORE  ============ */
 function finishQuiz(){
   clearInterval(countdown);
-  let score = 0;
+  let score=0;
   const resultsDiv = document.getElementById('results');
   let html = `<h2>Your Score: `;
-
   questions.forEach((q,i)=>{
-    // pick the chosen value; empty string → -1 (unanswered)
     const chosen = form[`q${i}`].value === "" ? -1 : Number(form[`q${i}`].value);
     const correct = q.ans;
     const isRight = chosen === correct;
-    if (isRight) score++;
-
+    if(isRight) score++;
     html += `<div class="${isRight?'correct':'wrong'}">
-               Q${i+1}: ${isRight?'correct':'wrong'} 
+               Q${i+1}: ${isRight?'correct':'wrong'}
                ${!isRight ? `(correct: ${q.choices[q.ans]})` : ''}
              </div>`;
   });
-
   html = `<h2>Your Score: ${score}/40</h2>` + html;
   resultsDiv.innerHTML = html;
   resultsDiv.style.display='block';
   form.style.display='none';
   document.getElementById('submitBtn').style.display='none';
+  document.getElementById('shareBtn').style.display='block';
+}
+
+/* ============  SCREENSHOT + EMAIL  ============ */
+async function shareResults(){
+  const canvas = await html2canvas(document.getElementById('results'),{backgroundColor:'#fff'});
+  canvas.toBlob(blob=>{
+    const file = new File([blob],'icas-results.png',{type:'png'});
+    const url = URL.createObjectURL(file);
+    const subject = encodeURIComponent('ICAS Year 4 Practice Results');
+    const body = encodeURIComponent('Hi,\n\nPlease find my ICAS practice score attached.\n\nRegards');
+    const mailLink = `mailto:?subject=${subject}&body=${body}&attachment=${url}`;
+    // Browsers ignore attachment param; fallback: download manually
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'icas-results.png';
+    a.click();
+    alert('Screenshot downloaded. You can now attach it to your e-mail.');
+  });
 }
 </script>
-
 </body>
 </html>
