@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year 4 ICAS Mathematics Model Test Paper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .correct { color: #10B981; }
+        .incorrect { color: #EF4444; }
+        .explanation { font-style: italic; color: #4B5563; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center p-4 sm:p-6 md:p-8">
+    <div class="w-full max-w-2xl bg-white rounded-lg shadow-lg p-6 sm:p-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-4">Year 4 ICAS Mathematics Model Test Paper</h1>
+        <p class="text-gray-600 text-center mb-6">This test contains 40 questions to be completed in 60 minutes. Calculators are not permitted. Answer each question one at a time using the options or text input provided. Use Next/Previous to navigate. Click Submit on the last question to see your results. Use the Send Screenshot via Email button to share your results.</p>
+        <div id="timer" class="text-xl sm:text-2xl font-semibold text-center text-red-600 mb-6">Time Remaining: 60:00</div>
+        <div id="quizContainer">
+            <form id="quizForm" class="space-y-6">
+                <div class="question" id="q1">
+                    <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Number and Arithmetic</h2>
+                    <p class="text-gray-700">1. What is the place value of the digit 6 in the number 8,637?</p>
+                    <div class="options space-y-2">
+                        <label class="flex items-center"><input type="radio" name="q1" value="A" class="mr-2"> A) 6</label>
+                        <label class="flex items-center"><input type="radio" name="q1" value="B" class="mr-2"> B) 60</label>
+                        <label class="flex items-center"><input type="radio" name="q1" value="C" class="mr-2"> C) 600</label>
+                        <label class="flex items-center"><input type="radio" name="q1" value="D" class="mr-2"> D) 6,000</label>
+                    </div>
+                </div>
+                <div class="question hidden" id="q2">
+                    <p class="text-gray-700">2. Round 7,849 to the nearest hundred.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q2" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q3">
+                    <p class="text-gray-700">3. Write 6,204 in expanded form.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q3" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q4">
+                    <p class="text-gray-700">4. Add 789 and 123.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q4" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q5">
+                    <p class="text-gray-700">5. Subtract 567 from 890.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q5" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q6">
+                    <p class="text-gray-700">6. Multiply 13 by 6.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q6" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q7">
+                    <p class="text-gray-700">7. Divide 54 by 6.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q7" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q8">
+                    <p class="text-gray-700">8. Add 1/5 + 4/5.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q8" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q9">
+                    <p class="text-gray-700">9. What is 3/4 of 12?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q9" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q10">
+                    <p class="text-gray-700">10. Convert 0.8 to a fraction.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q10" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q11">
+                    <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Algebra and Patterns</h2>
+                    <p class="text-gray-700">11. What comes next in the pattern: 12, 24, 36, 48, __?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q11" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q12">
+                    <p class="text-gray-700">12. Complete the sequence: 5, 10, 20, 40, __.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q12" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q13">
+                    <p class="text-gray-700">13. What is the rule for the pattern: 6, 12, 18, 24, __?</p>
+                    <div class="options space-y-2">
+                        <label class="flex items-center"><input type="radio" name="q13" value="A" class="mr-2"> A) Add 6</label>
+                        <label class="flex items-center"><input type="radio" name="q13" value="B" class="mr-2"> B) Multiply by 2</label>
+                        <label class="flex items-center"><input type="radio" name="q13" value="C" class="mr-2"> C) Add 12</label>
+                        <label class="flex items-center"><input type="radio" name="q13" value="D" class="mr-2"> D) Multiply by 3</label>
+                    </div>
+                </div>
+                <div class="question hidden" id="q14">
+                    <p class="text-gray-700">14. Complete the number sentence: 16 - __ = 7.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q14" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q15">
+                    <p class="text-gray-700">15. If z + 7 = 14, what is z?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q15" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q16">
+                    <p class="text-gray-700">16. What is the missing number in the sequence: 7, 10, 13, __, 19?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q16" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q17">
+                    <p class="text-gray-700">17. If 3 × d = 18, what is d?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q17" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q18">
+                    <p class="text-gray-700">18. Complete the pattern: 30, 27, 24, __, 18.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q18" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q19">
+                    <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Measures and Units</h2>
+                    <p class="text-gray-700">19. Convert 4 km to meters.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q19" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q20">
+                    <p class="text-gray-700">20. What is the perimeter of a rectangle with length 12 cm and width 4 cm?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q20" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q21">
+                    <p class="text-gray-700">21. How many milliliters are in 5 liters?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q21" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q22">
+                    <p class="text-gray-700">22. If a box weighs 3,000 grams, how many kilograms does it weigh?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q22" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q23">
+                    <p class="text-gray-700">23. What is the area of a square with side length 8 cm?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q22" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q24">
+                    <p class="text-gray-700">24. Convert 600 cm to meters.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q24" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q25">
+                    <p class="text-gray-700">25. If a car travels at 25 km/h, how far does it travel in 3 hours?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q25" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q26">
+                    <p class="text-gray-700">26. What is the time difference between 2:15 PM and 5:45 PM?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q26" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q27">
+                    <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Space and Geometry</h2>
+                    <p class="text-gray-700">27. How many lines of symmetry does a rectangle have?</p>
+                    <div class="options space-y-2">
+                        <label class="flex items-center"><input type="radio" name="q27" value="A" class="mr-2"> A) 1</label>
+                        <label class="flex items-center"><input type="radio" name="q27" value="B" class="mr-2"> B) 2</label>
+                        <label class="flex items-center"><input type="radio" name="q27" value="C" class="mr-2"> C) 3</label>
+                        <label class="flex items-center"><input type="radio" name="q27" value="D" class="mr-2"> D) 4</label>
+                    </div>
+                </div>
+                <div class="question hidden" id="q28">
+                    <p class="text-gray-700">28. Name a 3D shape with 6 faces, all of which are squares.</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q28" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q29">
+                    <p class="text-gray-700">29. What type of triangle has all sides equal?</p>
+                    <div class="options space-y-2">
+                        <label class="flex items-center"><input type="radio" name="q29" value="A" class="mr-2"> A) Scalene</label>
+                        <label class="flex items-center"><input type="radio" name="q29" value="B" class="mr-2"> B) Isosceles</label>
+                        <label class="flex items-center"><input type="radio" name="q29" value="C" class="mr-2"> C) Equilateral</label>
+                        <label class="flex items-center"><input type="radio" name="q29" value="D" class="mr-2"> D) Right-angled</label>
+                    </div>
+                </div>
+                <div class="question hidden" id="q30">
+                    <p class="text-gray-700">30. How many vertices does a rectangular prism have?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q30" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q31">
+                    <p class="text-gray-700">31. What is the next shape in the pattern: triangle, square, pentagon, triangle, square, __?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q31" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q32">
+                    <p class="text-gray-700">32. Which quadrilateral has exactly one pair of parallel sides?</p>
+                    <div class="options space-y-2">
+                        <label class="flex items-center"><input type="radio" name="q32" value="A" class="mr-2"> A) Rectangle</label>
+                        <label class="flex items-center"><input type="radio" name="q32" value="B" class="mr-2"> B) Rhombus</label>
+                        <label class="flex items-center"><input type="radio" name="q32" value="C" class="mr-2"> C) Trapezoid</label>
+                        <label class="flex items-center"><input type="radio" name="q32" value="D" class="mr-2"> D) Square</label>
+                    </div>
+                </div>
+                <div class="question hidden" id="q33">
+                    <p class="text-gray-700">33. How many degrees are in a straight line?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q33" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q34">
+                    <p class="text-gray-700">34. Which shape has infinite lines of symmetry?</p>
+                    <div class="options space-y-2">
+                        <label class="flex items-center"><input type="radio" name="q34" value="A" class="mr-2"> A) Circle</label>
+                        <label class="flex items-center"><input type="radio" name="q34" value="B" class="mr-2"> B) Square</label>
+                        <label class="flex items-center"><input type="radio" name="q34" value="C" class="mr-2"> C) Rectangle</label>
+                        <label class="flex items-center"><input type="radio" name="q34" value="D" class="mr-2"> D) Triangle</label>
+                    </div>
+                </div>
+                <div class="question hidden" id="q35">
+                    <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Chance and Data</h2>
+                    <p class="text-gray-700">35. A bag contains 3 red balls and 6 blue balls. What is the probability of drawing a blue ball?</p>
+                    <div class="options space-y-2">
+                        <label class="flex items-center"><input type="radio" name="q35" value="A" class="mr-2"> A) 3/9</label>
+                        <label class="flex items-center"><input type="radio" name="q35" value="B" class="mr-2"> B) 6/9</label>
+                        <label class="flex items-center"><input type="radio" name="q35" value="C" class="mr-2"> C) 3/6</label>
+                        <label class="flex items-center"><input type="radio" name="q35" value="D" class="mr-2"> D) 6/3</label>
+                    </div>
+                </div>
+                <div class="question hidden" id="q36">
+                    <p class="text-gray-700">36. If a spinner has 4 equal sections (red, blue, green, yellow), what is the probability of landing on green?</p>
+                    <div class="options space-y-2">
+                        <label class="flex items-center"><input type="radio" name="q36" value="A" class="mr-2"> A) 1/4</label>
+                        <label class="flex items-center"><input type="radio" name="q36" value="B" class="mr-2"> B) 1/3</label>
+                        <label class="flex items-center"><input type="radio" name="q36" value="C" class="mr-2"> C) 1/2</label>
+                        <label class="flex items-center"><input type="radio" name="q36" value="D" class="mr-2"> D) 3/4</label>
+                    </div>
+                </div>
+                <div class="question hidden" id="q37">
+                    <p class="text-gray-700">37. What is the probability of rolling an even number on a fair die?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q37" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q38">
+                    <p class="text-gray-700">38. The bar chart below shows the number of students who prefer different pets:<br>
+                        - Dogs: 10 students<br>
+                        - Cats: 6 students<br>
+                        - Birds: 4 students<br>
+                        How many more students prefer dogs than cats?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q38" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q39">
+                    <p class="text-gray-700">39. What is the mode of the following numbers: 8, 3, 8, 5, 2?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q39" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="question hidden" id="q40">
+                    <p class="text-gray-700">40. If a class has 14 students and 8 are girls, what fraction of the class are boys?</p>
+                    <div class="free-response mt-2">
+                        <input type="text" name="q40" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-4 mt-6" id="navButtons">
+                    <button type="button" id="prevBtn" disabled class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400 disabled:opacity-50">Previous</button>
+                    <button type="button" id="nextBtn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Next</button>
+                    <button type="button" id="submit" class="hidden bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Submit</button>
+                </div>
+            </form>
+            <div id="results" class="hidden space-y-4"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        const totalTime = 60 * 60; // 60 minutes in seconds
+        let timeLeft = totalTime;
+        let currentQuestion = 1;
+        let timerInterval;
+
+        const answers = {
+            q1: 'C', // 600
+            q2: '7900', // 7,849 rounded to 7,900
+            q3: '6000 + 200 + 0 + 4', // 6,204 expanded
+            q4: '912', // 789 + 123
+            q5: '323', // 890 - 567
+            q6: '78', // 13 × 6
+            q7: '9', // 54 ÷ 6
+            q8: '1', // 1/5 + 4/5
+            q9: '9', // 3/4 of 12
+            q10: '8/10 or 4/5', // 0.8
+            q11: '60', // 12, 24, 36, 48, 60
+            q12: '80', // 5, 10, 20, 40, 80
+            q13: 'A', // Add 6
+            q14: '9', // 16 - 9 = 7
+            q15: '7', // z + 7 = 14
+            q16: '16', // 7, 10, 13, 16, 19
+            q17: '6', // 3 × 6 = 18
+            q18: '21', // 30, 27, 24, 21, 18
+            q19: '4000', // 4 km = 4,000 m
+            q20: '32', // 2 × (12 + 4)
+            q21: '5000', // 5 L = 5,000 mL
+            q22: '3', // 3,000 g = 3 kg
+            q23: '64', // 8 × 8
+            q24: '6', // 600 cm = 6 m
+            q25: '75', // 25 × 3
+            q26: '3 hours 30 minutes', // 2:15 PM to 5:45 PM
+            q27: 'B', // Rectangle: 2 lines
+            q28: 'Cube', // 6 square faces
+            q29: 'C', // Equilateral triangle
+            q30: '8', // Rectangular prism vertices
+            q31: 'Pentagon', // Triangle, square, pentagon
+            q32: 'C', // Trapezoid
+            q33: '180', // Straight line
+            q34: 'A', // Circle
+            q35: 'B', // 6/9
+            q36: 'A', // 1/4
+            q37: '1/2', // Even numbers: 2, 4, 6
+            q38: '4', // 10 - 6
+            q39: '8', // Mode of 8, 3, 8, 5, 2
+            q40: '6/14 or 3/7' // 14 - 8 = 6 boys
+        };
+
+        const explanations = {
+            q1: 'To find the place value of 6 in 8,637, break down the number: 8 (thousands), 6 (hundreds), 3 (tens), 7 (units). The digit 6 is in the hundreds place, so its value is 600.',
+            q2: 'To round 7,849 to the nearest hundred, look at the tens digit (4). Since 4 < 5, keep the hundreds digit (8) as is. The number becomes 7,900.',
+            q3: 'To write 6,204 in expanded form, break it into place values: 6 (thousands) = 6,000, 2 (hundreds) = 200, 0 (tens) = 0, 4 (units) = 4. So, 6,204 = 6,000 + 200 + 0 + 4.',
+            q4: 'Add 789 + 123: Align by place values, add units (9 + 3 = 12, write 2, carry 1), tens (8 + 2 + 1 = 11, write 1, carry 1), hundreds (7 + 1 + 1 = 9). Result: 912.',
+            q5: 'Subtract 890 - 567: Align by place values, subtract units (0 - 7 needs borrowing, so 10 - 7 = 3), tens (8 - 6 = 2), hundreds (8 - 5 = 3). Result: 323.',
+            q6: 'Multiply 13 × 6: Break it as (10 × 6) + (3 × 6) = 60 + 18 = 78.',
+            q7: 'Divide 54 ÷ 6: 6 × 9 = 54, so the quotient is 9.',
+            q8: 'Add 1/5 + 4/5: Same denominator, so add numerators (1 + 4 = 5). Result: 5/5 = 1.',
+            q9: 'Find 3/4 of 12: Divide 12 by 4 (12 ÷ 4 = 3), then multiply by 3 (3 × 3 = 9). Result: 9.',
+            q10: 'Convert 0.8 to a fraction: 0.8 = 8/10, which simplifies to 4/5.',
+            q11: 'Pattern: 12, 24, 36, 48. Each number increases by 12 (48 + 12 = 60). Next number: 60.',
+            q12: 'Sequence: 5, 10, 20, 40. Each number is multiplied by 2 (40 × 2 = 80). Next number: 80.',
+            q13: 'Pattern: 6, 12, 18, 24. Each number increases by 6 (24 + 6 = 30). Rule: Add 6.',
+            q14: 'Solve 16 - __ = 7: Subtract 7 from 16 (16 - 7 = 9). Missing number: 9.',
+            q15: 'Solve z + 7 = 14: Subtract 7 from 14 (14 - 7 = 7). So, z = 7.',
+            q16: 'Sequence: 7, 10, 13, __, 19. Each number increases by 3 (13 + 3 = 16). Missing number: 16.',
+            q17: 'Solve 3 × d = 18: Divide 18 by 3 (18 ÷ 3 = 6). So, d = 6.',
+            q18: 'Pattern: 30, 27, 24, __, 18. Each number decreases by 3 (24 - 3 = 21). Missing number: 21.',
+            q19: 'Convert 4 km to meters: 1 km = 1,000 m, so 4 km = 4 × 1,000 = 4,000 m.',
+            q20: 'Perimeter of rectangle: length = 12 cm, width = 4 cm. Perimeter = 2 × (12 + 4) = 2 × 16 = 32 cm.',
+            q21: 'Convert 5 liters to milliliters: 1 L = 1,000 mL, so 5 L = 5 × 1,000 = 5,000 mL.',
+            q22: 'Convert 3,000 grams to kilograms: 1,000 g = 1 kg, so 3,000 g = 3,000 ÷ 1,000 = 3 kg.',
+            q23: 'Area of square: side = 8 cm. Area = 8 × 8 = 64 cm².',
+            q24: 'Convert 600 cm to meters: 100 cm = 1 m, so 600 cm = 600 ÷ 100 = 6 m.',
+            q25: 'Distance = speed × time. Car travels at 25 km/h for 3 hours: 25 × 3 = 75 km.',
+            q26: 'Time difference from 2:15 PM to 5:45 PM: From 2:15 PM to 5:15 PM is 3 hours, plus 30 minutes to 5:45 PM. Total: 3 hours 30 minutes.',
+            q27: 'A rectangle has 2 lines of symmetry: one vertical, one horizontal.',
+            q28: 'A 3D shape with 6 square faces is a cube.',
+            q29: 'A triangle with all sides equal is an equilateral triangle.',
+            q30: 'A rectangular prism has 8 vertices: 4 on the top face, 4 on the bottom face.',
+            q31: 'Pattern: triangle, square, pentagon, triangle, square, __. Repeats every 3 shapes, so next is pentagon.',
+            q32: 'A trapezoid has exactly one pair of parallel sides.',
+            q33: 'A straight line is 180 degrees.',
+            q34: 'A circle has infinite lines of symmetry, as any diameter is a line of symmetry.',
+            q35: 'Probability of blue ball: 6 blue out of 9 total balls = 6/9 = 2/3.',
+            q36: 'Probability of green: 1 green section out of 4 total sections = 1/4.',
+            q37: 'Even numbers on a die: 2, 4, 6 (3 outcomes out of 6) = 1/2.',
+            q38: 'Dogs (10) - Cats (6) = 4 more students prefer dogs.',
+            q39: 'Numbers: 8, 3, 8, 5, 2. The mode is the most frequent number: 8.',
+            q40: 'Total students: 14, girls: 8, boys: 14 - 8 = 6. Fraction of boys: 6/14 = 3/7.'
+        };
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                document.getElementById('timer').textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('timer').textContent = 'Time is up!';
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        function showQuestion(index) {
+            document.querySelectorAll('.question').forEach(q => q.classList.add('hidden'));
+            document.getElementById(`q${index}`).classList.remove('hidden');
+            document.getElementById('prevBtn').disabled = index === 1;
+            document.getElementById('nextBtn').classList.toggle('hidden', index === 40);
+            document.getElementById('submit').classList.toggle('hidden', index !== 40);
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            const form = document.getElementById('quizForm');
+            let score = 0;
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<h2 class="text-xl sm:text-2xl font-bold text-gray-800">Your Score: <span class="text-green-600">0/40</span></h2>`;
+            for (let i = 1; i <= 40; i++) {
+                const userAnswer = form.elements[`q${i}`].value.trim();
+                const correctAnswer = answers[`q${i}`];
+                if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                    score++;
+                    resultsDiv.innerHTML += `<p class="correct">Question ${i}: Correct (Your answer: ${userAnswer}, Correct answer: ${correctAnswer})</p>`;
+                } else {
+                    resultsDiv.innerHTML += `<p class="incorrect">Question ${i}: Incorrect (Your answer: ${userAnswer}, Correct answer: ${correctAnswer})</p><p class="explanation">${explanations[`q${i}`]}</p>`;
+                }
+            }
+            resultsDiv.innerHTML = resultsDiv.innerHTML.replace('0/40', `${score}/40`);
+            resultsDiv.innerHTML += '<button id="emailBtn" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Send Screenshot via Email</button>';
+            resultsDiv.classList.remove('hidden');
+            document.getElementById('quizContainer').classList.add('hidden');
+            document.getElementById('timer').classList.add('hidden');
+            document.getElementById('emailBtn').addEventListener('click', () => {
+                html2canvas(document.body).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const link = document.createElement('a');
+                    link.href = `mailto:?subject=Year 4 ICAS Math Results&body=Here is my ICAS Math Test result:%0D%0A%0D%0A&attachment=${imgData}`;
+                    link.click();
+                });
+            });
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentQuestion < 40) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }
+        });
+
+        document.getElementById('submit').addEventListener('click', submitQuiz);
+
+        window.onload = () => {
+            showQuestion(currentQuestion);
+            startTimer();
+        };
+    </script>
+</body>
+</html>
